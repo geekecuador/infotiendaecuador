@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
+<head>
+    <!-- Basic Page Needs -->
+    {% load static from staticfiles %}
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    {% block titulo %}
+        <title>Busqueda para {{ valor }} | {{ constants.configuracion.nombre_sitio }}</title>
+    {% endblock %}
+
+
+    <meta name="author" content="{{ constants.configuracion.meta_author }}">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/bootstrap.css' %} ">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/style.css' %} ">
+
+    <!-- Responsive -->
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/responsive.css' %} ">
+
+    <!-- Animation Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/animate.css' %} ">
+
+    <!-- Favicon and touch icons  -->
+    <link href="{{ MEDIA_URL }}{{ constants.configuracion.favicon.url }} " rel="apple-touch-icon-precomposed"
+          sizes="48x48">
+    <link href="{{ MEDIA_URL }}{{ constants.configuracion.favicon.url }}" rel="apple-touch-icon-precomposed">
+    <link href="{{ MEDIA_URL }}{{ constants.configuracion.favicon.url }}" rel="shortcut icon">
+
+</head>
+<body class="header_sticky">
+<!-- Preloader -->
+<section class="loading-overlay">
+    <div class="Loading-Page">
+        <h2 class="loader">Loading</h2>
+    </div>
+</section>
+
+<!-- Boxed -->
+<div class="boxed">
+
+    <!-- Header -->
+    <header id="header" class="header clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div id="logo" class="logo float-left">
+                        <a href="/" rel="home">
+                            <img src="{% static 'images/logo.png' %} " alt="image">
+                        </a>
+                    </div><!-- /.logo -->
+                    <div class="btn-menu">
+                        <span></span>
+                    </div><!-- //mobile menu button -->
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-8">
+                    <div class="nav-wrap">
+                        <nav id="mainnav" class="mainnav float-left">
+
+
+                            <ul class="menu" style="visibility: hidden">
+
+                                <li>
+                                    <a href="/">Inicio</a>
+                                </li>
+
+
+                                <li><a href="page-about.html">Categorías</a>
+                                    <ul class="submenu">
+                                        <li><a href="page-about.html">About Us</a>
+                                        </li>
+                                        <li><a href="page-services.html">Services</a>
+                                        </li>
+                                        <li><a href="page-user.html">User</a>
+                                        </li>
+                                        <li><a href="page-profile.html">User profile</a>
+                                        </li>
+                                        <li><a href="page-addlisting.html">Add Listing</a>
+                                        </li>
+                                        <li><a href="page-pricing.html">pricing</a>
+                                        </li>
+                                        <li><a href="page-contact.html">Contact Us</a>
+                                        </li>
+                                    </ul><!-- /.submenu -->
+                                </li>
+
+                                <li><a href="page-about.html">Ciudades</a>
+                                    <ul class="submenu">
+                                        <li><a href="page-about.html">About Us</a>
+                                        </li>
+                                        <li><a href="page-services.html">Services</a>
+                                        </li>
+                                        <li><a href="page-user.html">User</a>
+                                        </li>
+                                        <li><a href="page-profile.html">User profile</a>
+                                        </li>
+                                        <li><a href="page-addlisting.html">Add Listing</a>
+                                        </li>
+                                        <li><a href="page-pricing.html">pricing</a>
+                                        </li>
+                                        <li><a href="page-contact.html">Contact Us</a>
+                                        </li>
+                                    </ul><!-- /.submenu -->
+                                </li>
+                                <li>
+                                    <a data-toggle="modal" href="#popup_login"><i class="fa fa-user"></i> Sign in</a>
+                                </li>
+                                <li>
+                                    <a data-toggle="modal" href="#popup_register"><i class="fa fa-user-plus"></i>
+                                        Register</a>
+                                </li>
+                            </ul><!-- /.menu -->
+                        </nav><!-- /.mainnav -->
+                        <div class="button-addlist float-right">
+                            {#                            <button type="button" class="flat-button" onclick="location.href='page-addlisting.html'">#}
+                            {#                                Enviar local#}
+                            {#                            </button>#}
+
+                            <a data-toggle="modal" href="#popup_register" class="flat-button"><i
+                                    class="fa fa-user-plus"></i>
+                                Local</a>
+
+                        </div>
+                    </div><!-- /.nav-wrap -->
+                </div><!-- /.col-lg-8 -->
+            </div><!-- /.row -->
+        </div>
+    </header><!-- /.header -->
+
+    {% block contenido %}
+
+    {% endblock %}
+
+    <section class="flat-row v1 bg-theme">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="title-section">
+                        <h1 class="title">Suscríbete</h1>
+                        <div class="sub-title">
+                            Recibe las mejores promociones de nuestros locales afiliados.
+                        </div>
+                    </div>
+                    <form id="subscribe" class="flat-mailchimp" method="post">
+                        {% csrf_token %}
+                        <div class="field clearfix" id="subscribe-content">
+                            <p class="wrap-input-email">
+                                <input type="text" tabindex="2" id="emailmailchimp" name="emailmailchimp"
+                                       placeholder="Tu e-mail aquí">
+                            </p>
+                            <p class="wrap-btn">
+                                <button type="submit" id="submit" class=" subscribe-submit effect-button"
+                                        title="Subscribe now">ENVIAR
+                                </button>
+                            </p>
+                        </div>
+                        <div id="subscribe-msg"></div>
+                    </form>
+                </div>
+                <div class="col-lg-2">
+                    <div class="flat-counter text-center">
+                        <div class="content-counter">
+                            <div class="icon-count">
+                                <i class="ion-android-people"></i>
+                            </div>
+                            <div class="name-count">Locales</div>
+                            <div class="numb-count" data-to="{{ constants.locals }}" data-speed="2000"
+                                 data-waypoint-active="yes">{{ constants.locals }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="flat-counter text-center">
+                        <div class="content-counter">
+                            <div class="icon-count">
+                                <i class="ion-pricetags"></i>
+                            </div>
+                            <div class="name-count">Categorías</div>
+                            <div class="numb-count" data-to="{{ constants.categorias_count }}" data-speed="2000"
+                                 data-waypoint-active="yes">{{ constants.categorias_count }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="flat-counter text-center">
+                        <div class="content-counter">
+                            <div class="icon-count">
+                                <i class="ion-ios-people"></i>
+                            </div>
+                            <div class="name-count">Busquedas</div>
+                            <div class="numb-count" data-to="1101" data-speed="2000" data-waypoint-active="yes">1101
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer footer-widgets">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="widget widget_text widget_info">
+                        <h5 class="widget-title">Nosotros</h5>
+                        <div class="textwidget">
+                            <p>{{ constants.configuracion.descripcion }}</p>
+                        </div><!-- /.textwidget -->
+                        <ul class="flat-infomation">
+                            <li><i class="fa fa-map-marker"></i>{{ constants.configuracion.direccion }}</li>
+                            <li><i class="fa fa-phone"></i><a href="tel:{{ constants.configuracion.telefono }}">{{ constants.configuracion.telefono }}</a></li>
+                            <li><i class="fa fa-envelope-o"></i><a href="mailto:{{ constants.configuracion.email }}">{{ constants.configuracion.email }}</a></li>
+                            <li><i class="fa fa-info"></i><a href="#">Términos y condiciones</a></li>
+                        </ul>
+                    </div><!-- /.widget -->
+                </div><!-- /.col-lg-3 -->
+
+                <div class="col-lg-3">
+                    <div id="nav_menu-2" class="widget widget_nav_menu">
+                        <h5 class="widget-title">Categorías</h5>
+                        <div class="wrap-menufooter clearfix">
+                            <ul class="menu one-half">
+                                <li class="menu-item"><a href="#">{{ constants.categorias.0 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.1 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.2 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.3 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.4 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.5 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.6 }}</a></li>
+                            </ul>
+                            <ul class="menu one-half">
+
+                                <li class="menu-item"><a href="#">{{ constants.categorias.7 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.8 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.9 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.10 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.11 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.12 }}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><!-- /.col-lg-3 -->
+
+                <div class="col-lg-3">
+                    <div id="nav_menu-2" class="widget widget_nav_menu">
+                        <h5 class="widget-title">Categorías</h5>
+                        <div class="wrap-menufooter clearfix">
+                            <ul class="menu one-half">
+
+                                <li class="menu-item"><a href="#">{{ constants.categorias.13 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.14 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.15 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.16 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.17 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.18 }}</a></li>
+                            </ul>
+                            <ul class="menu one-half">
+
+                                <li class="menu-item"><a href="#">{{ constants.categorias.19 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.20 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.21 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.22 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.23 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.24 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.25 }}</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div><!-- /.col-lg-3 -->
+
+
+                <div class="col-lg-3">
+                    <div id="nav_menu-2" class="widget widget_nav_menu">
+                        <h5 class="widget-title">Categorías</h5>
+                        <div class="wrap-menufooter clearfix">
+                            <ul class="menu one-half">
+
+
+                                <li class="menu-item"><a href="#">{{ constants.categorias.26 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.27 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.28 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.29 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.30 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.31 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.32 }}</a></li>
+                            </ul>
+                            <ul class="menu one-half">
+
+
+                                <li class="menu-item"><a href="#">{{ constants.categorias.33 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.34 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.35 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.36 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.37 }}</a></li>
+                                <li class="menu-item"><a href="#">{{ constants.categorias.38 }}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><!-- /.col-lg-3 -->
+
+
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+        <div class="container">
+            <div class="bottom">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="copyright">
+                            <p>Copyright © 2018 {{ constants.configuracion.nombre_sitio }}. Todos los derechos
+                                reservados.
+                            </p>
+                        </div>
+                    </div><!-- /.col-md-12 -->
+                    <div class="col-md-6 col-sm-6">
+                        <div class="social-links float-right">
+                            <a href="{{ constants.configuracion.facebook }}"><i class="fa fa-facebook"></i></a>
+                            <a href="{{ constants.configuracion.twitter }}"><i class="fa fa-twitter"></i></a>
+                            <a href="{{ constants.configuracion.instagram }}"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade flat-popupform" id="popup_login">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body text-center clearfix">
+                    <form class="form-login form-listing" action="#" method="post">
+                        <h3 class="title-formlogin">Log in</h3>
+                        <span class="input-login icon-form"><input type="text" placeholder="Your Name*" name="email"
+                                                                   required="required"><i class="fa fa-user"></i></span>
+                        <span class="input-login icon-form"><input type="text" placeholder="Password*" name="password"
+                                                                   required="required"><i class="fa fa-lock"></i></span>
+                        <div class="flat-fogot clearfix">
+                            <label class="float-left">
+                                   <span class="input-check">
+                                        <input type="checkbox" name="check" value="0" checked="">
+                                        <span class="remember">Remember me</span>
+                                    </span>
+                            </label>
+                            <label class="float-right link-register">
+                                <a href="#">Lost your password?</a>
+                            </label>
+                        </div>
+                        <span class="wrap-button">
+                                <button type="button" id="login-button" class=" login-btn effect-button" title="log in">LOG IN</button>
+                            </span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade flat-popupform" id="popup_register">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body text-center clearfix">
+                    <form class="form-login form-listing" action="#" method="post">
+                        <h3 class="title-formlogin">Registro del local</h3>
+                        <span class="input-login icon-form">
+                            <input type="text" placeholder="Nombre*" name="name" required="required"><i class="fa fa-info-circle"></i>
+                        </span>
+                        <span class="input-login icon-form">
+                            <input type="text" placeholder="Servicio*" name="servicio" required="required"><i class="fa fa-briefcase"></i>
+                        </span>
+                        <span class="input-login icon-form">
+                            <input type="text" placeholder="Canton*" name="canton" required="required"><i class="fa fa-map-marker"></i>
+                        </span>
+                        <span class="input-login icon-form">
+                            <input type="text" placeholder="Celular*" name="celular" required="required"><i class="fa fa-mobile-phone"></i>
+                        </span>
+                        <span class="input-login icon-form">
+                            <input type="text" placeholder="Teléfono" name="celular"><i class="fa fa-phone"></i>
+                        </span>
+                        <div class="wrap-button signup">
+                            <button type="button" id="logup-button" class=" login-btn effect-button" title="log in">Enviar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Go Top -->
+    <a class="go-top effect-button">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+</div>
+
+<!-- Javascript -->
+<script src="{% static 'javascript/jquery.min.js' %} "></script>
+<script src="{% static 'javascript/tether.min.js' %} "></script>
+<script src="{% static 'javascript/bootstrap.min.js' %} "></script>
+<script src="{% static 'javascript/jquery.easing.js' %} "></script>
+<script src="{% static 'javascript/jquery-waypoints.js' %} "></script>
+<script src="{% static 'javascript/bootstrap-slider.min.js' %} "></script>
+<script src="{% static 'javascript/jquery-countTo.js' %} "></script>
+<script src="{% static 'javascript/jquery.cookie.js' %} "></script>
+<script src="{% static 'javascript/parallax.js' %} "></script>
+<script src="{% static 'javascript/smoothscroll.js' %} "></script>
+
+<script src="{% static 'javascript/main.js' %} "></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.32.2/dist/sweetalert2.all.min.js"></script>
+
+<script src="{% static 'javascript/bootstrap-datetimepicker.js' %} "></script>
+<script src="{% static 'javascript/bootstrap-datetimepicker.fr.js' %} "></script>
+<script src="{% static 'javascript/jquery.flexslider-min.js' %} "></script>
+
+<script>
+    $('#subscribe').submit(function (e) {
+        e.preventDefault();
+        var emailmailchimp = $("#emailmailchimp").val();
+        console.log("Valor de email");
+        console.log(emailmailchimp)
+        if (emailmailchimp) {
+            console.log("Dentro del if");
+            var csrfmiddlewaretoken = csrftoken;
+            var email_data = {
+                "emailmailchimp": emailmailchimp,
+                "csrfmiddlewaretoken": csrfmiddlewaretoken
+            };
+            $.ajax({
+                type: 'POST',
+                url: '/subscribe/',
+                data: email_data,
+                success: function (response) {
+                    console.log("Envio correcto del ajax")
+                    $('#emailmailchimp').val('');
+                    if (response.status == "404") {
+                        Swal(
+                            'Registro exitoso!',
+                            'Ya te encuentras en nuestra base de datos, Muchas gracias!',
+                            'success'
+                        )
+                    } else {
+                        Swal(
+                            'Registro exitoso!',
+                            'Muchas gracias!',
+                            'success'
+                        )
+                    }
+                },
+                error: function (response) {
+                    Swal(
+                        'Algo paso!',
+                        'Tenemos problemas para poder procesar la solicitud!',
+                        'error'
+                    )
+                    $('#emailmailchimp').val('');
+                }
+            });
+            return false;
+        } else {
+            Swal(
+                'Algo paso!',
+                'Por favor ingresa un email correcto!',
+            )
+        }
+    });
+
+
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+
+    function csrfSafeMethod(method) {
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    })
+</script>
+
+
+</body>
+</html>

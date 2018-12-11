@@ -1,0 +1,94 @@
+<html>
+<head>
+    {% load static from staticfiles %}
+    <title>InfoTienda Ecuador</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="author" content="David Pulloquinga">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700" rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}" />
+    <link href=" {% static 'css/main.css' %}" rel="stylesheet"/>
+
+    <style>
+        .s013 {
+  min-height: 100vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  background: url( {% static 'images/' %}{{fondo }});
+  background-size: cover;
+  background-position: center center;
+  padding: 15px;
+  font-family: 'Poppins', sans-serif;
+}
+    </style>
+</head>
+<body>
+
+<div class="s013">
+    <form method="post" action="/busqueda/">
+        {% csrf_token %}
+        <fieldset>
+            <center><img src="{% static 'images/logoblanco@3x.png' %}" alt=""></center>
+        </fieldset>
+        <div class="inner-form">
+            <div class="left">
+                <div class="input-wrap first">
+                    <div class="input-field first">
+                        <label>¿Qué es lo que buscas?</label>
+                        <input type="text" placeholder="ej: comida, bar, hotel" name="query" id="query" required/>
+                    </div>
+                </div>
+                <div class="input-wrap second">
+                    <div class="input-field second">
+                        <label>Ciudad</label>
+                        <div class="input-select">
+                            <select data-trigger="" name="choices-single-defaul">
+                                {#                      {% for canton in cantones %}#}
+                                {#                      <option placeholder="">{{ canton }}</option>#}
+                                {#                      {% endfor %}#}
+
+                                {% for cantone in cantones %}
+                                    <option placeholder="" value="{{ cantone.id }}">{{ cantone.nombre }}</option>
+                                {% endfor %}
+
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                {#            <div class="input-wrap second">#}
+                {#              <div class="input-field second">#}
+                {#                <label>Categoría</label>#}
+                {#                <div class="input-select">#}
+                {#                  <select data-trigger="" name="choices-single-defaul">#}
+                {#                    <option placeholder="">Hoteles</option>#}
+                {#                    <option></option>#}
+                {#                    <option>3 adults</option>#}
+                {#                    <option>4 adults</option>#}
+                {#                  </select>#}
+                {#                </div>#}
+                {#              </div>#}
+                {#            </div>#}
+            </div>
+            <input class="btn-search" type="submit" value="Buscar"/>
+        </div>
+    </form>
+</div>
+
+<script src="{% static 'js/extention/choices.js' %}"></script>
+<script>
+    const choices = new Choices('[data-trigger]',
+        {
+            searchEnabled: false,
+            itemSelectText: '',
+        });
+
+</script>
+</body>
+</html>

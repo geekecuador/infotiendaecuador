@@ -1,0 +1,173 @@
+{% extends 'listing/template.html' %}
+{% load static from staticfiles %}
+{% block titulo %}
+    <title>{{ object.nombre }} | Infotienda Ecuador</title>
+{% endblock %}
+
+{% block contenido %}
+
+    <!-- Page title -->
+    <div class="page-title parallax parallax1">
+        <div class="section-overlay" style="background-image: url('{% static 'images/fondo6.jpeg' %}')">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-title-heading">
+                        <h1 class="title text-center">{{ object.nombre }}</h1>
+                    </div><!-- /.page-title-captions -->
+                    <div class="breadcrumbs">
+                        <ul>
+                            <li><a href="/">Inicio</a></li>
+                            <li> -</li>
+                            <li> Locales</li>
+                            <li> -</li>
+                            <li>{{ object.nombre }}</li>
+                        </ul>
+                    </div><!-- /.breadcrumbs -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </div><!-- /.page-title -->
+
+    <!-- Blog posts -->
+    <section class="main-content page-listing">
+        <div class="container">
+            <div class="row text-left">
+                <div class="col-lg-12">
+                    <div class="listing-wrap">
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="content-listing">
+                                    <div class="text">
+                                        <h3 class="title-listing">{{ object.nombre }}</h3>
+                                        <ul class="rating-listing">
+
+                                            <li>
+                                                <div class="social-links">
+                                                    <span>Compartir:</span>
+                                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"
+                                                       target="_blank"><i
+                                                            class="fa fa-facebook"></i></a>
+                                                    <a href="http://www.twitter.com/share?url={{ request.build_absolute_uri }}"
+                                                       target="_blank"><i
+                                                            class="fa fa-twitter"></i></a>
+
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <ul class="rating-listing">
+                                            <li><a href="#">Categoría: {{ object.categoria }}</a></li>
+                                            <li><a href="#">Subcategoría: {{ object.subcategoria }}</a></li>
+                                        </ul>
+                                        <p>{{ object.servicio }}</p>
+                                        <div class="widget widget-contact">
+                                            <ul>
+                                                <li class="adress"><i class="fa fa-map-marker" aria-hidden="true"
+                                                                      style="color:#E8280B"></i>
+                                                    {{ object.direccion }}
+                                                </li>
+                                                <li class="phone"><i class="fa fa-phone" aria-hidden="true"
+                                                                     style="color:#E8280B"></i>
+                                                    <a href="tel:{{ object.telefono }}">{{ object.telefono }}</a>
+                                                </li>
+                                                <li class="email"><i class="fa fa-envelope-o" aria-hidden="true"
+                                                                     style="color:#E8280B"></i>
+                                                    <a href="mailto:{{ object.email }}">{{ object.email }}</a>
+                                                </li>
+                                                <li class="time"><i class="fa fa-clock-o" aria-hidden="true"
+                                                                    style="color:#E8280B"></i>
+
+                                                    <span>Lunes-Viernes: </span> {{ object.horario_de_atencion_inicio_1 }}
+                                                    - {{ object.horario_de_atencion_fin_1 }}<br>
+                                                    <i class="fa fa-clock-o" aria-hidden="true"
+                                                       style="color:#E8280B"></i>
+
+                                                    <span>Fin de semana: </span> {{ object.horario_de_atencion_inicio_2 }}
+                                                    - {{ object.horario_de_atencion_fin_2 }}
+                                                </li>
+                                            </ul>
+
+                                            <div class="social-links">
+                                                {% ifnotequal object.facebook "" %}
+                                                    <a href="{{ object.facebook }}" target="_blank"><i
+                                                            class="fa fa-facebook"></i></a>
+                                                {% endifnotequal %}
+                                                {% ifnotequal object.twitter "" %}
+                                                    <a href="{{ object.twitter }}" target="_blank"><i
+                                                            class="fa fa-twitter"></i></a>
+                                                {% endifnotequal %}
+                                                {% ifnotequal object.whatsapp "" %}
+                                                    <a href="{{ object.whatsapp }}" target="_blank"><i
+                                                            class="fa fa-whatsapp"></i></a>
+                                                {% endifnotequal %}
+                                                {% ifnotequal object.instagram "" %}
+                                                    <a href="{{ object.instagram }}" target="_blank"><i
+                                                            class="fa fa-instagram"></i></a>
+                                                {% endifnotequal %}
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div id="map"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="tf-gallery">
+                            <div id="tf-slider">
+                                <ul class="slides">
+                                    {% for imagen in object.images.all %}
+                                        <li>
+                                            <img src="{{ MEDIA_URL }}{{ imagen.image.url }}" alt="image">
+                                        </li>
+                                    {% endfor %}
+
+
+                                </ul>
+                            </div>
+
+
+                        </div><!-- /.tf-gallery -->
+                    </div><!-- /.listing-wrap -->
+                </div><!-- /.col-lg-9 -->
+
+
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
+
+    <script>
+        var map;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: {{ object.latitud|safe }}, lng: {{object.longitud|safe}}},
+                zoom: 18
+            });
+            var marker = new google.maps.Marker({
+                position: {lat: {{ object.latitud|safe }}, lng: {{object.longitud|safe}}},
+                map: map,
+                title: '{{ object.nombre }}'
+            });
+        }
+    </script>
+    <script src="{% static 'javascript/gmap3.min.js' %} "></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUIc2-TTbn2IGJ4W0_0ePkv3xBvA_2sCM&callback=initMap"></script>
+
+    <style>
+        #map {
+            width: 100%;
+            height: 450px;
+        }
+    </style>
+{% endblock %}

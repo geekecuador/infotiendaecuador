@@ -1,0 +1,110 @@
+{% extends 'listing/template.html' %}
+  {% load static from staticfiles %}
+{% block titulo %}
+    <title>Busqueda para {{ valor }}</title>
+{% endblock %}
+{% block contenido %}
+    <!-- Page title -->
+    <div class="page-title parallax parallax1">
+        <div class="section-overlay" style="background-image: url('{% static 'images/fondo6.jpeg' %}')">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-title-heading">
+                        <h1 class="title text-center">Busqueda para: {{ valor }} en {{ ciudad }}</h1>
+                    </div><!-- /.page-title-captions -->
+                    <div class="breadcrumbs">
+                        <ul>
+                            <li><a href="/">Inicio</a></li>
+                            <li> -</li>
+                            <li>Busqueda para {{ valor }}</li>
+                        </ul>
+                    </div><!-- /.breadcrumbs -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </div><!-- /.page-title -->
+
+
+    <!-- Blog posts -->
+    <section class="main-content page-listing-full">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="flat-select clearfix">
+                        <div class="float-left width100 clearfix">
+                            <div class=" showing">
+                                <p><span>{{ locales|length }}</span> resultados encontrados</p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        {% for local in locales %}
+                            <div class="col-lg-4 col-sm-6">
+                            <div class="flat-product">
+                                <div class="featured-product">
+                                    {#                                    <img src="{% static 'images/services/ejemplo.jpg' %}" alt="image">#}
+                                    <img src="{{ local.imagen.url }}" alt="image">
+                                    {#                                    <div class="time bg-green">#}
+                                    {#                                       Abierto#}
+                                    {#                                    </div>#}
+
+                                    <div class="rate-product">
+                                        <div class="link-review clearfix">
+                                            <div class="button-product float-left">
+                                                <button type="button" class="flat-button"
+                                                        onclick="location.href='#'">{{ local.categoria }}</button>
+                                            </div>
+                                            {#                                            <div class="start-review float-right">#}
+                                            {#                                                <span class="flat-start">#}
+                                            {#                                                    <i class="fa fa-star"></i>#}
+                                            {#                                                    <i class="fa fa-star"></i>#}
+                                            {#                                                    <i class="fa fa-star"></i>#}
+                                            {#                                                    <i class="fa fa-star"></i>#}
+                                            {#                                                    <i class="fa fa-star"></i>#}
+                                            {#                                                </span>#}
+                                            {#                                                <a href="#" class="review">( 2 reviewers )</a>#}
+                                            {#                                            </div>#}
+                                        </div>
+                                        <div class="info-product">
+                                            <h6 class="title"><a href="{{ local.get_absolute_url }}">{{ local.nombre }}</a></h6>
+                                            <p>{{ local.direccion }}</p>
+                                            <a href="https://wa.me/{{ local.whatsapp }}" class="heart" style="background-color:green;">
+                                                <i class="fa fa-whatsapp"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content-product">
+                                    {#                                    <div class="tm">#}
+                                    {#                                        DP#}
+                                    {#                                    </div>#}
+                                    <div class="text">
+                                        <p>{{ local.servicio|slice:":70"  }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+
+
+                    </div>
+{#                    <div class="blog-pagination style2 text-center">#}
+{#                        <ul class="flat-pagination clearfix">#}
+{#                            <li class="active"><a href="#">1</a></li>#}
+{#                            <li><a href="#">2</a></li>#}
+{#                            <li><a href="#">3</a></li>#}
+{#                            <li class="next">#}
+{#                                <a href="#">Sig.</a>#}
+{#                            </li>#}
+{#                        </ul><!-- /.flat-pagination -->#}
+{#                    </div><!-- /.blog-pagination -->#}
+                </div><!-- /.col-lg-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
+{% endblock %}
