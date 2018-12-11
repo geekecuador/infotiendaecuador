@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="932b7c15-02f8-4990-9f4e-a4ec33b7224f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/templates/listing/single.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/listing/single.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/listing/template.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/listing/template.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +27,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/listing/single.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
@@ -67,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/listing/template.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="376" column="60" lean-forward="true" selection-start-line="376" selection-start-column="60" selection-end-line="376" selection-end-column="60" />
+            <state relative-caret-position="129">
+              <caret line="237" column="95" lean-forward="true" selection-start-line="237" selection-start-column="95" selection-end-line="237" selection-end-column="95" />
               <folding>
                 <element signature="n#style#0;n#ul#0;n#nav#0;n#div#0;n#div#1;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -171,12 +171,12 @@
         <option value="$PROJECT_DIR$/templates/listing/listing.html" />
         <option value="$PROJECT_DIR$/infotienda/models.py" />
         <option value="$PROJECT_DIR$/static/javascript/main.js" />
-        <option value="$PROJECT_DIR$/templates/listing/template.html" />
         <option value="$PROJECT_DIR$/infotienda/views.py" />
         <option value="$PROJECT_DIR$/infotienda/admin.py" />
         <option value="$PROJECT_DIR$/infotiendaecuador/urls.py" />
         <option value="$PROJECT_DIR$/infotiendaecuador/settings.py" />
         <option value="$PROJECT_DIR$/templates/listing/single.html" />
+        <option value="$PROJECT_DIR$/templates/listing/template.html" />
       </list>
     </option>
   </component>
@@ -329,12 +329,12 @@
       <workItem from="1544036180008" duration="5000" />
       <workItem from="1544222498929" duration="1053000" />
       <workItem from="1544374314529" duration="5888000" />
-      <workItem from="1544403925846" duration="31732000" />
+      <workItem from="1544403925846" duration="31863000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43443000" />
+    <option name="totallyTimeSpent" value="43574000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -506,16 +506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/listing/template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="376" column="60" lean-forward="true" selection-start-line="376" selection-start-column="60" selection-end-line="376" selection-end-column="60" />
-          <folding>
-            <element signature="n#style#0;n#ul#0;n#nav#0;n#div#0;n#div#1;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/infotienda/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1050">
@@ -571,6 +561,16 @@
           <folding>
             <element signature="e#266#332#0#HTML" expanded="true" />
             <element signature="e#6170#6191#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/listing/template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="237" column="95" lean-forward="true" selection-start-line="237" selection-start-column="95" selection-end-line="237" selection-end-column="95" />
+          <folding>
+            <element signature="n#style#0;n#ul#0;n#nav#0;n#div#0;n#div#1;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
