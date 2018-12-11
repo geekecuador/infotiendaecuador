@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.contrib.gis.db import models
+
 from solo.admin import SingletonModelAdmin
 
 from .models import Local, Canton, Provincia, Categorias, Subcategorias, ImagenLocal, ConfiguracioSitio, Subscribe
@@ -23,9 +23,6 @@ class PropertyImageInline(admin.TabularInline):
 
 
 class LocalAdmin(admin.ModelAdmin):
-    formfield_overrides = {
-        models.PointField: {"widget": GoogleStaticMapWidget}
-    }
     inlines = [PropertyImageInline, ]
 
 

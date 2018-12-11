@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="932b7c15-02f8-4990-9f4e-a4ec33b7224f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/infotiendaecuador/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/infotiendaecuador/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infotienda/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/infotienda/admin.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/infotiendaecuador/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="44" column="3" selection-start-line="44" selection-start-column="3" selection-end-line="44" selection-end-column="3" />
+            <state relative-caret-position="505">
+              <caret line="158" column="59" lean-forward="true" selection-start-line="158" selection-start-column="59" selection-end-line="158" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -117,6 +117,18 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/infotienda/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -160,11 +172,11 @@
         <option value="$PROJECT_DIR$/templates/listing/listing.html" />
         <option value="$PROJECT_DIR$/infotienda/models.py" />
         <option value="$PROJECT_DIR$/infotiendaecuador/urls.py" />
-        <option value="$PROJECT_DIR$/infotienda/admin.py" />
         <option value="$PROJECT_DIR$/static/javascript/main.js" />
         <option value="$PROJECT_DIR$/templates/listing/template.html" />
         <option value="$PROJECT_DIR$/infotienda/views.py" />
         <option value="$PROJECT_DIR$/infotiendaecuador/settings.py" />
+        <option value="$PROJECT_DIR$/infotienda/admin.py" />
       </list>
     </option>
   </component>
@@ -317,12 +329,12 @@
       <workItem from="1544036180008" duration="5000" />
       <workItem from="1544222498929" duration="1053000" />
       <workItem from="1544374314529" duration="5888000" />
-      <workItem from="1544403925846" duration="29192000" />
+      <workItem from="1544403925846" duration="29384000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40903000" />
+    <option name="totallyTimeSpent" value="41095000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -457,16 +469,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/infotienda/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/infotiendaecuador/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -535,6 +537,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/infotienda/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="70" column="95" selection-start-line="70" selection-start-column="95" selection-end-line="70" selection-end-column="95" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/infotienda/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="889">
@@ -546,20 +558,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/infotienda/views.py">
+    <entry file="file://$PROJECT_DIR$/infotiendaecuador/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="70" column="95" selection-start-line="70" selection-start-column="95" selection-end-line="70" selection-end-column="95" />
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="505">
+          <caret line="158" column="59" lean-forward="true" selection-start-line="158" selection-start-column="59" selection-end-line="158" selection-end-column="59" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/infotiendaecuador/settings.py">
+    <entry file="file://$PROJECT_DIR$/infotienda/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="44" column="3" selection-start-line="44" selection-start-column="3" selection-end-line="44" selection-end-column="3" />
+        <state relative-caret-position="360">
+          <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
