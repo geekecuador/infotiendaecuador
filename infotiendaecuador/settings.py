@@ -154,5 +154,6 @@ MEDIA_URL = '/media/'
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 MAILCHIMP_API_KEY = "c57b42bedee9a88f9501f2162a361813-us19"
+
 if not DEBUG:
-    STATIC_ROOT = '/home/infotienda/infotienda/infotiendaecuador/estatico'
+    STATIC_ROOT = '/home/urban/static/'
