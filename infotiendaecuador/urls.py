@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
 
-from infotienda.views import index, busqueda, single, Locales, subscribe
+from infotienda.views import index, busqueda, single, Locales, subscribe,privacidad,agregar,ingresarlocal
 from infotiendaecuador import settings
 
 urlpatterns = [
@@ -29,8 +29,11 @@ urlpatterns = [
     path('', index),
     path('busqueda/', busqueda.as_view()),
     path('local/', single),
+    path('privacidad/', privacidad),
+    path('agregar/', agregar),
     path('locales/<slug:slug>/', Locales.as_view(), name='locales'),
     path('subscribe/', subscribe, name="subscribe"),
+    path('ingresarlocal/',ingresarlocal,name="ingresarlocal")
 ]
 if settings.DEBUG:
     urlpatterns += staticfiles_urlpatterns()
@@ -38,4 +41,4 @@ if settings.DEBUG:
 
 
 
-admin.site.site_header = 'Info Tienda Ecuador'
+admin.site.site_header = 'InfoTiendaEcuador'

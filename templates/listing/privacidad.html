@@ -1,0 +1,77 @@
+{% extends 'listing/template.html' %}
+{% load static from staticfiles %}
+{% block titulo %}
+    <title>Privacidad | Infotienda Ecuador</title>
+    <meta property="og:title" content="{{ object.nombre }}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+<meta property="og:image" content="{{request.scheme}}://{{request.get_host}}{{ MEDIA_URL }}{{ object.imagen.url }}" />
+<meta property="og:description" content="{{ object.servicio }}" />
+{% endblock %}
+
+{% block contenido %}
+
+    <!-- Page title -->
+    <div class="page-title parallax parallax1">
+        <div class="section-overlay" style="background-image: url('{% static 'images/fondo6.jpeg' %}')">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-title-heading">
+                        <h1 class="title text-center">TÉRMINOS GENERALES DE USO DEL SITIO WEB, APLICACIÓN MÓVIL Y POLÍTICA DE PRIVACIDAD</h1>
+                    </div><!-- /.page-title-captions -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </div><!-- /.page-title -->
+
+    <!-- Blog posts -->
+    <section class="main-content page-listing">
+        <div class="container">
+            <div class="row text-left">
+                <div class="col-lg-12">
+                    <div class="listing-wrap">
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="content-listing">
+                                    <div class="text">
+
+
+
+                                      <p>
+                                          1. La disponibilidad y servicio de la información ofrecido a los usuarios que accedan al sitio web o se descarguen la aplicación móvil de Infotiendaecuador, es actualmente gratuito y sin costo alguno para el usuario. Infotiendaecuador no garantiza el funcionamiento y disponibilidad del sitio web durante los 365 días del año, las 24 horas del día, por lo tanto no asume responsabilidad alguna sobre la disponibilidad de su servidor. Sin embargo se ejecutarán todas las acciones para que el impacto por tareas de mantenimiento de esta página sea el mínimo posible. Infotiendaecuador no se responsabiliza de ningún daño o perjuicio sufrido por el visitante que se derive de la no disponibilidad de acceso a este servicio.
+<br><br>2. La utilización de la información descrita en la página web y aplicación móvil de Infotiendaecuador le permite la consulta libre y gratuita del servicio, producto o profesional que desee, que no se manipule ni altere los contenidos y no se los utilice con fines comerciales e ilícitos, para acceder a la información publicada y que es de interés público en el ámbito comercial. El acceso al sitio web, así como el uso que pueda hacerse de la información publicada en el mismo, son responsabilidad exclusiva del visitante. Infotiendaecuador no se responsabiliza de ninguna consecuencia, daño o perjuicio que pudieran derivarse del acceso al sitio web, la aplicación móvil o del uso de la información publicada, con excepción de todas aquellas actuaciones que resulten de la aplicación de las disposiciones legales a las que deba someterse en el estricto ejercicio de sus competencias.
+<br><br>3. Infotiendaecuador podrá utilizar los datos de contacto ingresados de su cartera de clientes, para informarlos respecto de las inquietudes, preguntas, etc., utilizando como medios de comunicación el correo electrónico, mensajes y/o llamadas telefónicas. Esta información se almacena en bases de datos pertenecientes a Infotiendaecuador, las mismas que se encuentran protegidas del acceso por parte de terceros. Toda la información ingresada en el sitio web y aplicación móvil, se encuentra protegida por mecanismos tecnológicos que eviten el acceso no autorizado a la misma por parte de terceros; con la finalidad de mantener la confidencialidad de la misma. Dicha información se encuentra amparada por la normativa vigente relacionada al uso y manejo de información de la República del Ecuador.
+<br><br>4. La información de identificación y autenticación de los clientes será confidencial y podrá ser revelada únicamente en los casos en que sea necesario cumplir un mandato judicial o cualquier otro proceso legal.
+<br><br>5. La transmisión de la información, desde el sitio web y aplicación móvil, se realiza por canales seguros que protegen la información en tránsito enviada por el visitante, sin embargo Infotiendaecuador no se responsabiliza en caso de que los visitantes utilicen computadores de uso compartido como: salas de cómputo, cibercafés, computadores de acceso público, etc. donde puede existir programas que sustraigan de manera ilegal la información ingresada por Infotiendaecuador.
+<br><br>6. Infotiendaecuador se reserva el derecho a cambiar o modificar en cualquier momento y sin notificación previa, la presente política de privacidad. La utilización por parte del usuario o el acceso al sitio web y aplicación móvil, implica la aceptación tácita de dichas modificaciones o de las nuevas condiciones.
+<br><br>7. El visitante podrá comunicarse con la Empresa a través del sitio web http://www. infotiendaecuador.com, el sitio web genera “cookies” temporales que se almacenan en el computador del visitante para asignar al mismo un identificador de sesión, el cual es eliminado automáticamente del computador una vez que el visitante sale del sitio web o cierra la sesión en uso.
+<br><br>8. Los derechos de propiedad intelectual del sitio web, aplicación móvil, diseño web, gráfico, edición y los códigos que contiene son titularidad de Infotiendaecuador, a no ser que se indique una titularidad diferente. La reproducción, distribución, comercialización o transformación no autorizadas del servicio constituye una infracción de los derechos de propiedad intelectual de Infotiendaecuador o de aquél que sea titular. Igualmente, todas las marcas, signos y logos distintivos de cualquier clase contenidos en esta página web están protegidos por Ley.
+<br><br>9. En el caso de existir sugerencias o preguntas sobre la política de privacidad, las prácticas de este sitio web o aplicación y su relación con el servicio, favor comunicarse con anymaz@gmail.com.
+
+
+                                      </p>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+                    </div><!-- /.listing-wrap -->
+                </div><!-- /.col-lg-9 -->
+
+
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
+
+
+{% endblock %}

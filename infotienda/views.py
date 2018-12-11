@@ -58,6 +58,15 @@ def index(request):
 def single(request):
     return render(request, 'listing/single.html', {})
 
+def privacidad(request):
+    constants = constant()
+    return render(request, 'listing/privacidad.html', {'constants':constants})
+
+
+def agregar(request):
+    constants = constant()
+    return render(request, 'listing/agregar.html', {'constants':constants})
+
 
 class busqueda(View):
     def get(self, request):
@@ -87,5 +96,22 @@ def subscribe(request):
         else:
             Subscribe.objects.create(email=email)
             # SendSubscribeMail(email) # Send the Mail, Class available in utils.py
-            return redirect("/admin")
+    return redirect("/")
+
+
+def ingresarlocal(request):
+    print("ingreso al metodo")
+    if request.method == 'POST':
+        nombre = request.POST['nombre']
+        servicio = request.POST['servicio']
+        telefono = request.POST['telefono']
+        email = request.POST['email']
+
+        Local.objects.create(nombre=nombre, servicio=servicio, telefono=telefono,
+                             email=email, direccion=' ', sector='', horario_de_atencion_fin_1='00:00',
+                             horario_de_atencion_inicio_1='00:00', horario_de_atencion_fin_2='00:00',
+                             horario_de_atencion_inicio_2='00:00',latitud=0.00,longitud=0.00 ,publicado=False)
+
+        # SendSubscribeMail(email) # Send the Mail, Class available in utils.py
+
     return redirect("/")

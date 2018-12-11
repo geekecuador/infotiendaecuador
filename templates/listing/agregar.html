@@ -1,0 +1,185 @@
+{% extends 'listing/template.html' %}
+{% load static from staticfiles %}
+{% block titulo %}
+    <title>Ingreso de local| Infotienda Ecuador</title>
+    <meta property="og:title" content="{{ object.nombre }}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="{{ request.build_absolute_uri }}"/>
+    <meta property="og:image"
+          content="{{ request.scheme }}://{{ request.get_host }}{{ MEDIA_URL }}{{ object.imagen.url }}"/>
+    <meta property="og:description" content="{{ object.servicio }}"/>
+{% endblock %}
+
+{% block contenido %}
+
+    <!-- Page title -->
+    <div class="page-title parallax parallax1">
+        <div class="section-overlay" style="background-image: url('{% static 'images/fondo6.jpeg' %}')">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-title-heading">
+                        <h1 class="title text-center">Ingresar un nuevo local</h1>
+                    </div><!-- /.page-title-captions -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </div><!-- /.page-title -->
+
+    <!-- Blog posts -->
+    <section class="main-content page-listing">
+        <div class="container">
+            <div class="row text-left">
+                <div class="col-lg-12">
+                    <div class="listing-wrap">
+
+                        <div class="row">
+                            <div class="offset-3 center-block col-md-6 ">
+                                <div>
+                                    <div class="text">
+
+
+                                        <form id="formulario" class="form-login form-listing" method="post">
+                                            {% csrf_token %}
+                                            <span class="input-login icon-form">
+                                                    <input type="text" placeholder="Nombre del local*" name="nombre" id="nombre" required="required"><i
+                                                    class="fa fa-info-circle"></i>
+                                            </span>
+                                            <span class="input-login icon-form">
+                                                    <input type="text" placeholder="Descripción del servicio *" name="servicio" id="servicio"
+                                                        required="required"><i class="fa fa-briefcase"></i>
+                                            </span>
+                                            <span class="input-login icon-form">
+                                                    <input type="text" placeholder="Teléfono*" name="telefono" id="telefono" required="required"><i
+                                                    class="fa fa-mobile-phone"></i>
+                                            </span>
+                                            <span class="input-login icon-form">
+                                                    <input type="text" placeholder="Email*" name="email" id="email" required="required"><i
+                                                    class="fa fa-envelope-o"></i>
+                                            </span>
+
+                                            <div class="wrap-button signup">
+                                                <button type="submit" id="logup-b1" class=" login-btn effect-button"
+                                                        title="log in">Enviar
+                                                </button>
+                                            </div>
+                                        </form>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </div><!-- /.listing-wrap -->
+                </div><!-- /.col-lg-9 -->
+
+
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
+    <script src="{% static 'javascript/jquery.min.js' %} "></script>
+    <script>
+        $('#formulario').submit(function (e) {
+            e.preventDefault();
+            var nombre = $("#nombre").val();
+            var servicio = $("#servicio").val();
+            var telefono = $("#telefono").val();
+            var email = $("#email").val();
+            console.log("Valor de email");
+            console.log(nombre);
+            console.log(servicio);
+            console.log(telefono);
+            console.log(email);
+            if (true) {
+                console.log("Dentro del if");
+                var csrfmiddlewaretoken = csrftoken;
+                var email_data1 = {
+                    "nombre": nombre,
+                    "servicio": servicio,
+                    "telefono": telefono,
+                    "email": email,
+                    "csrfmiddlewaretoken": csrfmiddlewaretoken
+                };
+                $.ajax({
+                    type: 'POST',
+                    url: '/ingresarlocal/',
+                    data: email_data1,
+                    success: function (response) {
+                        console.log("Envio correcto del ajax")
+                        $('#nombre').val('');
+                        $("#servicio").val('');
+                        $("#telefono").val('');
+                        $("#email").val('');
+                        if (response.status == "404") {
+                            Swal(
+                                'Registro exitoso!',
+                                'En un momento un asesor se comunicará con usted.!',
+                                'success'
+                            )
+                        } else {
+                            Swal(
+                                'Registro exitoso!',
+                                'En un momento un asesor se comunicará con usted.!',
+                                'success'
+                            )
+                        }
+                    },
+                    error: function (response) {
+                        Swal(
+                            'Algo paso!',
+                            'Tenemos problemas para poder procesar la solicitud!',
+                            'error'
+                        )
+                        $('#nombre').val('');
+                        $("#servicio").val('');
+                        $("#telefono").val('');
+                        $("#email").val('');
+                    }
+                });
+                return false;
+            } else {
+                Swal(
+                    'Algo paso!',
+                    'Por favor verifique los datos ingresados!',
+                )
+            }
+        });
+
+
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+
+        function csrfSafeMethod(method) {
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+
+        $.ajaxSetup({
+            beforeSend: function (xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        })
+    </script>
+
+{% endblock %}

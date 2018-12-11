@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     {% block titulo %}
-        <title>Busqueda para {{ valor }} | {{ constants.configuracion.nombre_sitio }}</title>
+        <title>Ingreso del local | {{ constants.configuracion.nombre_sitio }}</title>
     {% endblock %}
 
 
@@ -134,7 +134,7 @@
                             {#                                Enviar local#}
                             {#                            </button>#}
 
-                            <a data-toggle="modal" href="#popup_register" class="flat-button"><i
+                            <a  href="/agregar" class="flat-button"><i
                                     class="fa fa-user-plus"></i>
                                 Local</a>
 
@@ -326,9 +326,7 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-6">
                         <div class="copyright">
-                            <p>Copyright © 2018 {{ constants.configuracion.nombre_sitio }}. Todos los derechos
-                                reservados.
-                            </p>
+                            <p>Copyright © 2018 {{ constants.configuracion.nombre_sitio }}.| <a href="/privacidad/">Términos y condiciones</a></p>
                         </div>
                     </div><!-- /.col-md-12 -->
                     <div class="col-md-6 col-sm-6">
