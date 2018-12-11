@@ -140,13 +140,12 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR,'static'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -154,6 +153,6 @@ MEDIA_URL = '/media/'
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-
-
 MAILCHIMP_API_KEY = "c57b42bedee9a88f9501f2162a361813-us19"
+if not DEBUG:
+    STATIC_ROOT = '/home/infotienda/infotienda/infotiendaecuador/estatico'
