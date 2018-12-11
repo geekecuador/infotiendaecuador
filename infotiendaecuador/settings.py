@@ -25,7 +25,7 @@ SECRET_KEY = 'a&mj5e=80*1p4j9n9d7qo=nzxu@@@13^ppq6tqx!e_t9kk8d8_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -87,19 +87,28 @@ WSGI_APPLICATION = 'infotiendaecuador.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'infotiendaecuador',
-        'USER': 'davidpulloquinga',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '5555',
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'infotiendaecuador',
+            'USER': 'davidpulloquinga',
+            'PASSWORD': '',
+            'HOST': 'localhost',
+            'PORT': '5555',
+        }
     }
-}
-
-
-
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'infotiendaecuador',
+            'USER': 'davidpulloquinga',
+            'PASSWORD': 'D@vidpull0',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 

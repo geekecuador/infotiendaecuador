@@ -68,7 +68,7 @@ class busqueda(View):
         ciudad = request.POST['choices-single-defaul']
         locales = Local.objects.annotate(
             search=SearchVector('nombre', 'servicio'),
-        ).filter(search=valor).filter(canton=ciudad).filter(publicado=True)
+        ).filter(search=valor).filter(canton=ciudad).filter(publicado=True).order_by('prioridad')
         ciudad = Canton.objects.get(id=ciudad)
         constants = constant()
         return render(request, 'listing/listing.html',
