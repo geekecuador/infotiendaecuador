@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'solo',
     # 'django.contrib.gis',
     'infotienda.apps.InfotiendaConfig',
-    'mapwidgets',
 
 ]
 
@@ -156,18 +155,5 @@ MEDIA_URL = '/media/'
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
-
-
-
-
-MAP_WIDGETS = {
-    "GooglePointFieldWidget": (
-        ("zoom", 15),
-        ("mapCenterLocationName", "latacunga"),
-        ("GooglePlaceAutocompleteOptions", {'componentRestrictions': {'country': 'ec'}}),
-        ("markerFitZoom", 12),
-    ),
-    "GOOGLE_MAP_API_KEY": "AIzaSyAaan3YvScWeqjDalz0WmXH2vvcjhoqCKA"
-}
 
 MAILCHIMP_API_KEY = "c57b42bedee9a88f9501f2162a361813-us19"
