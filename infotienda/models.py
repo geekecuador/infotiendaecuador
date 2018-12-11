@@ -82,25 +82,25 @@ class Local(models.Model):
     nombre = models.CharField(max_length=250)
     slug = models.SlugField(unique=True, blank=True)
     servicio = models.TextField()
-    imagen = models.ImageField(upload_to='locales')
+    imagen = models.ImageField(upload_to='locales',null=True, blank=True)
     categoria = models.ForeignKey(Categorias, on_delete=models.SET_NULL, null=True, verbose_name="Categoría")
     subcategoria = GroupedForeignKey(
-        Subcategorias, 'categorias'
+        Subcategorias, 'categorias',null=True, blank=True
 
     )
     provincia = models.ForeignKey(Provincia, on_delete=models.SET_NULL, null=True)
     canton = GroupedForeignKey(
-        Canton, 'provincia'
+        Canton, 'provincia',null=True, blank=True
     )
-    direccion = models.CharField(max_length=255)
-    sector = models.CharField(max_length=200)
-    horario_de_atencion_inicio_1 = models.TimeField(verbose_name="Hora de atención 1")
-    horario_de_atencion_fin_1 = models.TimeField(verbose_name="Hora de cierre 1")
-    horario_de_atencion_inicio_2 = models.TimeField(verbose_name="Hora de atención 2")
-    horario_de_atencion_fin_2 = models.TimeField(verbose_name="Hora de cierre 1")
-    telefono = models.CharField(max_length=10, verbose_name="Teléfono")
-    celular = models.CharField(max_length=10)
-    email = models.EmailField()
+    direccion = models.CharField(max_length=255,null=True, blank=True)
+    sector = models.CharField(max_length=200,null=True, blank=True)
+    horario_de_atencion_inicio_1 = models.TimeField(verbose_name="Hora de atención 1",null=True, blank=True)
+    horario_de_atencion_fin_1 = models.TimeField(verbose_name="Hora de cierre 1",null=True, blank=True)
+    horario_de_atencion_inicio_2 = models.TimeField(verbose_name="Hora de atención 2",null=True, blank=True)
+    horario_de_atencion_fin_2 = models.TimeField(verbose_name="Hora de cierre 1",null=True, blank=True)
+    telefono = models.CharField(max_length=10, verbose_name="Teléfono",null=True, blank=True)
+    celular = models.CharField(max_length=10,null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
     latitud = models.DecimalField(max_digits=15, decimal_places=9, blank=True, null=True)
     longitud = models.DecimalField(max_digits=15, decimal_places=9, blank=True, null=True)
     prioridad = models.SmallIntegerField(default=1, blank=True)

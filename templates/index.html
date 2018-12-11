@@ -26,6 +26,16 @@
   font-family: 'Poppins', sans-serif;
 }
     </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-96535537-14"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-96535537-14');
+</script>
+
 </head>
 <body>
 
@@ -106,18 +116,9 @@
 
 
 
-        <a class="btn btn--android" href="https://play.google.com/store/apps/details?id=com.infotienda.app&hl=es_EC" target="_blank">
-            <svg class="btn__icon btn__icon--google" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            preserveAspectRatio="xMidYMid"
-            viewBox="0 0 20 20">
-                <path d="M4.942627,18.0508423l7.6660156-4.3273926l-1.6452026-1.8234253L4.942627,18.0508423z M2.1422119,2.1231079
-        C2.0543823,2.281311,2,2.4631958,2,2.664917v15.1259766c0,0.2799683,0.1046143,0.5202026,0.2631226,0.710144l7.6265259-7.7912598
-        L2.1422119,2.1231079z M17.4795532,9.4819336l-2.6724854-1.508606l-2.72229,2.7811279l1.9516602,2.1630249l3.4431152-1.9436035
-        C17.7927856,10.8155518,17.9656372,10.5287476,18,10.2279053C17.9656372,9.927063,17.7927856,9.6402588,17.4795532,9.4819336z
-         M13.3649292,7.1592407L4.1452026,1.954834l6.8656616,7.609314L13.3649292,7.1592407z"/>
-            </svg>
-            <span class="btn__text">Descarga en</span>
-            <span class="btn__storename">Google Play</span>
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.infotienda.app&hl=es_EC" target="_blank">
+            <img src="{% static 'images/play.png'%}" alt="" height="50px">
+           
         </a>
 
 
@@ -144,29 +145,19 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  border: 1px solid #ddd;
-  padding: 4px 8px;
-  margin: 5px auto;
-  border-radius: 4px;
-  color: #fff;
-  fill: #fff;
-  background: #000;
+
   line-height: 1em;
-  min-width: 190px;
-  height: 45px;
+
   transition: 0.2s ease-out;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   -webkit-tap-highlight-color: rgba(0,0,0,0);
-  font-family: $btn-font;
   font-weight: 500;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -moz-font-feature-settings: 'liga', 'kern';
+
 }
 .btn:hover,
 .btn:focus {
-  background: #111;
+  background: transparent;
   color: #fff;
   fill: #fff;
   border-color: #fff;

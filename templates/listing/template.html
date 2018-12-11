@@ -34,6 +34,16 @@
           sizes="48x48">
     <link href="{{ MEDIA_URL }}{{ constants.configuracion.favicon.url }}" rel="apple-touch-icon-precomposed">
     <link href="{{ MEDIA_URL }}{{ constants.configuracion.favicon.url }}" rel="shortcut icon">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-96535537-14"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-96535537-14');
+</script>
+
 
 </head>
 <body class="header_sticky">
@@ -375,26 +385,17 @@
                     <form class="form-login form-listing" action="#" method="post">
                         <h3 class="title-formlogin">Registro del local</h3>
                         <span class="input-login icon-form">
-                            <input type="text" placeholder="Nombre*" name="name" required="required"><i class="fa fa-info-circle"></i>
+                            <input type="text" placeholder="Nombre del local*" name="name" required="required"><i class="fa fa-info-circle"></i>
                         </span>
                         <span class="input-login icon-form">
-                            <input type="text" placeholder="Servicio*" name="servicio" required="required"><i class="fa fa-briefcase"></i>
+                            <input type="text" placeholder="Descripción del servicio *" name="servicio" required="required"><i class="fa fa-briefcase"></i>
                         </span>
                         <span class="input-login icon-form">
-                            <input type="text" placeholder="Canton*" name="canton" required="required"><i class="fa fa-map-marker"></i>
-                        </span>
-                        <span class="input-login icon-form">
-                            <select name="" id="">
-                                <option value="">Latacunga</option>
-                                <option value="">Salcedo</option>
-                            </select><i class="fa fa-caret-square-o-down"></i>
+                            <input type="text" placeholder="Teléfono*" name="canton" required="required"><i class="fa fa-mobile-phone"></i>
                         </span>
 
-                        <span class="input-login icon-form">
-                            <input type="text" placeholder="Teléfono" name="celular"><i class="fa fa-phone"></i>
-                        </span>
                         <div class="wrap-button signup">
-                            <button type="button" id="logup-button" class=" login-btn effect-button" title="log in">Enviar
+                            <button type="submit" id="logup-button" class=" login-btn effect-button" title="log in">Enviar
                             </button>
                         </div>
                     </form>
