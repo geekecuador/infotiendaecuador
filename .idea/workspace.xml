@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="932b7c15-02f8-4990-9f4e-a4ec33b7224f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/infotiendaecuador/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/infotiendaecuador/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infotiendaecuador/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/infotiendaecuador/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/listing/single.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/listing/single.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/listing/single.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="133" selection-start-line="133" selection-end-line="133" />
+            <state relative-caret-position="120">
+              <caret line="8" column="59" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
               <folding>
                 <element signature="e#266#332#0#HTML" expanded="true" />
                 <element signature="e#6170#6191#0#HTML" expanded="true" />
@@ -50,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/infotiendaecuador/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="156" lean-forward="true" selection-start-line="156" selection-end-line="156" />
+            <state relative-caret-position="340">
+              <caret line="147" column="37" lean-forward="true" selection-start-line="147" selection-start-column="37" selection-end-line="147" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -169,7 +168,6 @@
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/listing/listing-single.html" />
         <option value="$PROJECT_DIR$/static/stylesheets/flexslider.css" />
-        <option value="$PROJECT_DIR$/templates/listing/single.html" />
         <option value="$PROJECT_DIR$/templates/listing/listing.html" />
         <option value="$PROJECT_DIR$/infotienda/models.py" />
         <option value="$PROJECT_DIR$/static/javascript/main.js" />
@@ -178,6 +176,7 @@
         <option value="$PROJECT_DIR$/infotienda/admin.py" />
         <option value="$PROJECT_DIR$/infotiendaecuador/urls.py" />
         <option value="$PROJECT_DIR$/infotiendaecuador/settings.py" />
+        <option value="$PROJECT_DIR$/templates/listing/single.html" />
       </list>
     </option>
   </component>
@@ -330,12 +329,12 @@
       <workItem from="1544036180008" duration="5000" />
       <workItem from="1544222498929" duration="1053000" />
       <workItem from="1544374314529" duration="5888000" />
-      <workItem from="1544403925846" duration="30836000" />
+      <workItem from="1544403925846" duration="31455000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42547000" />
+    <option name="totallyTimeSpent" value="43166000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -488,17 +487,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/listing/single.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="133" selection-start-line="133" selection-end-line="133" />
-          <folding>
-            <element signature="e#266#332#0#HTML" expanded="true" />
-            <element signature="e#6170#6191#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -559,6 +547,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/infotiendaecuador/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="147" column="37" lean-forward="true" selection-start-line="147" selection-start-column="37" selection-end-line="147" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/infotiendaecuador/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="415">
@@ -569,10 +564,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/infotiendaecuador/settings.py">
+    <entry file="file://$PROJECT_DIR$/templates/listing/single.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="156" lean-forward="true" selection-start-line="156" selection-end-line="156" />
+        <state relative-caret-position="120">
+          <caret line="8" column="59" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
+          <folding>
+            <element signature="e#266#332#0#HTML" expanded="true" />
+            <element signature="e#6170#6191#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
