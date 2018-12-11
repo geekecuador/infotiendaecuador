@@ -14,8 +14,6 @@ admin.site.register(Categorias)
 admin.site.register(Subscribe)
 admin.site.register(Subcategorias)
 
-from mapwidgets.widgets import GoogleStaticMapWidget
-
 
 class PropertyImageInline(admin.TabularInline):
     model = ImagenLocal
