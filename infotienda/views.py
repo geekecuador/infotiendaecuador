@@ -1,3 +1,5 @@
+import random
+
 from django.contrib.postgres.search import SearchVector
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
@@ -12,7 +14,7 @@ from infotienda.models import Canton, Categorias, Subcategorias, Local, Configur
 def constant():
     valores = {}
     configuracion = ConfiguracioSitio.objects.get()
-    categorias = Categorias.objects.all()
+    categorias = Categorias.objects.all().order_by('nombre')
     categorias_count = categorias.count()
     subcategorias_count = Subcategorias.objects.count()
     locals = Local.objects.count()
@@ -25,6 +27,7 @@ def constant():
     valores["configuracion"] = configuracion
     valores["ciudades"] = ciudades
     valores["provincias"] = provincias
+    valores["random"] =  random.randint(100,1000)*5
     return valores
 
 

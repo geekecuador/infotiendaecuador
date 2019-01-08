@@ -15,6 +15,7 @@ class ConfiguracioSitio(SingletonModel):
     facebook = models.URLField(blank=True)
     twitter = models.URLField(blank=True)
     instagram = models.URLField(blank=True)
+    whatsapp = models.URLField(blank=True)
     meta_description = models.TextField(blank=True)
     meta_author = models.CharField(max_length=100, blank=True)
     meta_keywords = models.CharField(max_length=200, blank=True)
