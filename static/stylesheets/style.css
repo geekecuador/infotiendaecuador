@@ -2778,7 +2778,7 @@ footer a:hover {
 	height: 2px;
 }
 
-.footer .widget .widget-title1::before {
+#widget-title1::before {
 	background-color: #515151;
 	height: 100% !important;
 }
