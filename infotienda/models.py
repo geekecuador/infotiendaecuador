@@ -99,6 +99,9 @@ class Local(models.Model):
     horario_de_atencion_fin_1 = models.TimeField(verbose_name="Hora de cierre 1", blank=True)
     horario_de_atencion_inicio_2 = models.TimeField(verbose_name="Hora de atención 2", blank=True)
     horario_de_atencion_fin_2 = models.TimeField(verbose_name="Hora de cierre 1", blank=True)
+
+    horario_de_atencion_inicio_3 = models.TimeField(verbose_name="Hora de atención 3", blank=True)
+    horario_de_atencion_fin_3 = models.TimeField(verbose_name="Hora de cierre 3", blank=True)
     telefono = models.CharField(max_length=10, verbose_name="Teléfono", blank=True)
     celular = models.CharField(max_length=10, blank=True)
     email = models.EmailField(blank=True)

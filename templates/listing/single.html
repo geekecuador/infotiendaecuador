@@ -12,28 +12,28 @@
 {% block contenido %}
 
     <!-- Page title -->
-    <div class="page-title parallax parallax1">
-        <div class="section-overlay" style="background-image: url('{% static 'images/fondo6.jpeg' %}')">
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="page-title-heading">
-                        <h1 class="title text-center">{{ object.nombre }}</h1>
-                    </div><!-- /.page-title-captions -->
-                    <div class="breadcrumbs">
-                        <ul>
-                            <li><a href="/">Inicio</a></li>
-                            <li> -</li>
-                            <li> Locales</li>
-                            <li> -</li>
-                            <li>{{ object.nombre }}</li>
-                        </ul>
-                    </div><!-- /.breadcrumbs -->
-                </div><!-- /.col-md-12 -->
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </div><!-- /.page-title -->
+{#    <div class="page-title parallax parallax1">#}
+{#        <div class="section-overlay" style="background-image: url('{% static 'images/fondo6.jpeg' %}')">#}
+{#        </div>#}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                <div class="col-md-12">#}
+{#                    <div class="page-title-heading">#}
+{#                        <h1 class="title text-center">{{ object.nombre }}</h1>#}
+{#                    </div><!-- /.page-title-captions -->#}
+{#                    <div class="breadcrumbs">#}
+{#                        <ul>#}
+{#                            <li><a href="/">Inicio</a></li>#}
+{#                            <li> -</li>#}
+{#                            <li> Locales</li>#}
+{#                            <li> -</li>#}
+{#                            <li>{{ object.nombre }}</li>#}
+{#                        </ul>#}
+{#                    </div><!-- /.breadcrumbs -->#}
+{#                </div><!-- /.col-md-12 -->#}
+{#            </div><!-- /.row -->#}
+{#        </div><!-- /.container -->#}
+{#    </div><!-- /.page-title -->#}
 
     <!-- Blog posts -->
     <section class="main-content page-listing">
@@ -47,6 +47,15 @@
                                 <div class="content-listing">
                                     <div class="text">
                                         <h3 class="title-listing">{{ object.nombre }}</h3>
+                                        <div class="breadcrumbs" style="color:black;">
+                        <ul>
+                            <li style="color:black;"><a href="/" style="color:black;">Inicio</a></li>
+                            <li style="color:black;"> -</li>
+                            <li style="color:black;"> Locales</li>
+                            <li style="color:black;"> -</li>
+                            <li style="color:black;">{{ object.nombre }}</li>
+                        </ul>
+                    </div><!-- /.breadcrumbs -->
                                         <ul class="rating-listing">
 
                                             <li>
@@ -93,8 +102,17 @@
                                                     <i class="fa fa-clock-o" aria-hidden="true"
                                                        style="color:#E8280B"></i>
 
-                                                    <span>Fin de semana: </span> {{ object.horario_de_atencion_inicio_2 }}
+                                                    <span>Sábados: </span> {{ object.horario_de_atencion_inicio_2 }}
                                                     - {{ object.horario_de_atencion_fin_2 }}
+
+                                                    <br>
+                                                    <i class="fa fa-clock-o" aria-hidden="true"
+                                                       style="color:#E8280B"></i>
+
+                                                    <span>Domingos: </span> {{ object.horario_de_atencion_inicio_3 }}
+                                                    - {{ object.horario_de_atencion_fin_3 }}
+
+
                                                 </li>
                                             </ul>
 

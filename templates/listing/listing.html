@@ -44,7 +44,11 @@
                     <div class="row">
                         {% for local in locales %}
                             <div class="col-lg-4 col-sm-6">
-                                <div class="flat-product">
+
+
+                                <a href="{{ local.get_absolute_url }}">
+
+                                    <div class="flat-product">
                                     <div class="featured-product">
                                         {#                                    <img src="{% static 'images/services/ejemplo.jpg' %}" alt="image">#}
                                         <img src="{{ local.imagen.url }}" alt="image">
@@ -73,10 +77,10 @@
                                                 <h6 class="title"><a
                                                         href="{{ local.get_absolute_url }}">{{ local.nombre }}</a></h6>
                                                 <p>{{ local.direccion }}</p>
-                                                <a href="https://wa.me/{{ local.whatsapp }}" class="heart"
-                                                   style="background-color:green;">
-                                                    <i class="fa fa-whatsapp"></i>
-                                                </a>
+{#                                                <a href="https://wa.me/{{ local.whatsapp }}" class="heart"#}
+{#                                                   style="background-color:green;">#}
+{#                                                    <i class="fa fa-whatsapp"></i>#}
+{#                                                </a>#}
                                             </div>
                                         </div>
                                     </div>
@@ -85,10 +89,13 @@
                                         {#                                        DP#}
                                         {#                                    </div>#}
                                         <div class="text">
-                                            <p>{{ local.servicio|slice:":70" }}</p>
+                                            <p>{{ local.servicio|slice:":70"|add:"..." }}</p>
                                         </div>
                                     </div>
                                 </div>
+                                </a>
+
+
                             </div>
                         {% endfor %}
 
