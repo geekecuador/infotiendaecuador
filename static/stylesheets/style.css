@@ -856,7 +856,7 @@ ul.flat-infomation li i {
 -------------------------------------------------------------- */
 .page-title {
 	position: relative;
-	padding: 87px 0 97px;
+	padding: 87px 0 45px;
 }
 
 .page-title-heading h1 {	
@@ -2776,6 +2776,11 @@ footer a:hover {
 .footer .widget .widget-title::before {
 	background-color: #515151;
 	height: 2px;
+}
+
+.footer .widget .widget-title1::before {
+	background-color: #515151;
+	height: 100% !important;
 }
 
 /* widget widget_text widget_info */
