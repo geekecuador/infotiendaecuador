@@ -59,7 +59,7 @@
                     hasChildMenu.children('ul').hide();
                     hasChildMenu.children('a').after('<span class="btn-submenu"></span>');
                     $('.btn-menu').removeClass('active');
-                    $('#mainnav-mobi').children('.menu').append('<li class="button"><a class="flat-button" href="page-addlisting.html">Add Listing</a></li>');
+                    $('#mainnav-mobi').children('.menu').append('<li class="button"><a class="flat-button" href="/agregar">Registra tu servicio gratis</a></li>');
                 } else {
                     var $desktopMenu = $('#mainnav-mobi').attr('id', 'mainnav').removeAttr('style');
 
