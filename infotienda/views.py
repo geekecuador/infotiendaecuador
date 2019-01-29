@@ -1,6 +1,7 @@
 import random
 
-from django.contrib.postgres.search import SearchVector
+from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
+
 from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
@@ -80,9 +81,13 @@ class busqueda(View):
     def post(self, request):
         valor = request.POST['query']
         ciudad = request.POST['choices-single-defaul']
+        vector = SearchVector('nombre', config='Spanish', weight='A') + SearchVector('servicio', config='Spanish',
+                                                                                     weight='B')
+        query = SearchQuery(str(valor))
+
         locales = Local.objects.annotate(
-            search=SearchVector('nombre__unaccent', 'servicio__unaccent'),
-        ).filter(search=valor).filter(canton=ciudad).filter(publicado=True).order_by('prioridad')
+            search=SearchRank(vector, query),
+        ).filter(canton=ciudad).filter(publicado=True).order_by('prioridad')
         ciudad = Canton.objects.get(id=ciudad)
         constants = constant()
         return render(request, 'listing/listing.html',
