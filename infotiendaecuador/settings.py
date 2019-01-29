@@ -92,9 +92,9 @@ DATABASES = {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'infotiendaecuador',
             'USER': 'davidpulloquinga',
-            'PASSWORD': '',
+            'PASSWORD': 'D@vidpull0',
             'HOST': 'localhost',
-            'PORT': '5555',
+            'PORT': '5432',
         }
     }
 #
