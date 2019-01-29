@@ -1,8 +1,10 @@
 import random
 
 from django.contrib.postgres.search import SearchVector
+from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
+from django.template.loader import render_to_string
 from django.views import View
 from django.views.generic import DetailView
 
@@ -27,7 +29,7 @@ def constant():
     valores["configuracion"] = configuracion
     valores["ciudades"] = ciudades
     valores["provincias"] = provincias
-    valores["random"] =  random.randint(100,1000)*5
+    valores["random"] = random.randint(100, 1000) * 5
     return valores
 
 
@@ -40,7 +42,6 @@ class Locales(DetailView):
         context = super(Locales, self).get_context_data(**kwargs)
         context['constants'] = constant()
         return context
-
 
 
 def locales(request, nombre):
@@ -61,14 +62,15 @@ def index(request):
 def single(request):
     return render(request, 'listing/single.html', {})
 
+
 def privacidad(request):
     constants = constant()
-    return render(request, 'listing/privacidad.html', {'constants':constants})
+    return render(request, 'listing/privacidad.html', {'constants': constants})
 
 
 def agregar(request):
     constants = constant()
-    return render(request, 'listing/agregar.html', {'constants':constants})
+    return render(request, 'listing/agregar.html', {'constants': constants})
 
 
 class busqueda(View):
@@ -79,7 +81,7 @@ class busqueda(View):
         valor = request.POST['query']
         ciudad = request.POST['choices-single-defaul']
         locales = Local.objects.annotate(
-            search=SearchVector('nombre', 'servicio'),
+            search=SearchVector('nombre__unaccent', 'servicio__unaccent'),
         ).filter(search=valor).filter(canton=ciudad).filter(publicado=True).order_by('prioridad')
         ciudad = Canton.objects.get(id=ciudad)
         constants = constant()
@@ -113,7 +115,20 @@ def ingresarlocal(request):
         Local.objects.create(nombre=nombre, servicio=servicio, telefono=telefono,
                              email=email, direccion=' ', sector='', horario_de_atencion_fin_1='00:00',
                              horario_de_atencion_inicio_1='00:00', horario_de_atencion_fin_2='00:00',
-                             horario_de_atencion_inicio_2='00:00',latitud=0.00,longitud=0.00 ,publicado=False)
+                             horario_de_atencion_inicio_2='00:00', latitud=0.00, longitud=0.00, publicado=False)
+
+        # ctx = {
+        #     'nombres': estudiante.usuario.get_full_name(),
+        #
+        #     'curso': _curso,
+        #     'actividad': 'lección',
+        # }
+        # html_part = render_to_string('email/reservacion.html', ctx)
+        # send_mail('RESERVACIÓN ' + estudiante.usuario.get_full_name(), ' ', 'contacto@infotiendaecuador.com',
+        #           [estudiante.usuario.email], fail_silently=False,
+        #           html_message=html_part)
+        #
+        #
 
         # SendSubscribeMail(email) # Send the Mail, Class available in utils.py
 
