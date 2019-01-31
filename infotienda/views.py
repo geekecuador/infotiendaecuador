@@ -84,11 +84,19 @@ class busqueda(View):
         vector = SearchVector('nombre', config='Spanish', weight='A') + SearchVector('servicio', config='Spanish',
                                                                                      weight='B')
         query = SearchQuery(str(valor))
+        #
+        # locales = Local.objects.annotate(
+        #     search=SearchRank(vector, query),
+        # ).filter(search=valor).filter(canton=ciudad).filter(publicado=True).order_by('prioridad')
+        # ciudad = Canton.objects.get(id=ciudad)
+        locales= Local.objects.annotate(
+            search=(
+                SearchVector('nombre') +
+                SearchVector('servicio')
+            ),
+        ).filter(search=valor).filter(canton=ciudad).filter(publicado=True).order_by('prioridad')
 
-        locales = Local.objects.annotate(
-            search=SearchRank(vector, query),
-        ).filter(canton=ciudad).filter(publicado=True).order_by('prioridad')
-        ciudad = Canton.objects.get(id=ciudad)
+
         constants = constant()
         return render(request, 'listing/listing.html',
                       {'valor': valor, 'ciudad': ciudad, 'constants': constants, 'locales': locales})
