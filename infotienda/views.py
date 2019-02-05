@@ -79,24 +79,23 @@ class busqueda(View):
         return redirect('/')
 
     def post(self, request):
+        language = 'spanish'
         valor = request.POST['query']
         ciudad = request.POST['choices-single-defaul']
-        vector = SearchVector('nombre', config='Spanish', weight='A') + SearchVector('servicio', config='Spanish',
-                                                                                     weight='B')
-        query = SearchQuery(str(valor))
-        #
         # locales = Local.objects.annotate(
         #     search=SearchRank(vector, query),
         # ).filter(search=valor).filter(canton=ciudad).filter(publicado=True).order_by('prioridad')
         # ciudad = Canton.objects.get(id=ciudad)
+        vector = SearchVector('nombre',  weight='A',config=language) + SearchVector('servicio', weight='B',config=language)
+        query = SearchQuery(valor,config=language)
         locales= Local.objects.annotate(
-            search=(
-                SearchVector('nombre') +
-                SearchVector('servicio')
-            ),
-        ).filter(search=valor).filter(canton=ciudad).filter(publicado=True).order_by('prioridad')
-
-
+            rank=SearchRank(vector, query)
+        ).filter(rank__gte=0.3).filter(canton=ciudad).filter(publicado=True).order_by('prioridad').query
+        print(locales)
+        locales = Local.objects.annotate(
+            rank=SearchRank(vector, query)
+        ).filter(rank__gte=0.3).filter(canton=ciudad).filter(publicado=True).order_by('prioridad')
+        ciudad = Canton.objects.get(id=ciudad)
         constants = constant()
         return render(request, 'listing/listing.html',
                       {'valor': valor, 'ciudad': ciudad, 'constants': constants, 'locales': locales})
@@ -128,7 +127,18 @@ def ingresarlocal(request):
         Local.objects.create(nombre=nombre, servicio=servicio, telefono=telefono,
                              email=email, direccion=' ', sector='', horario_de_atencion_fin_1='00:00',
                              horario_de_atencion_inicio_1='00:00', horario_de_atencion_fin_2='00:00',
-                             horario_de_atencion_inicio_2='00:00', latitud=0.00, longitud=0.00, publicado=False)
+                             horario_de_atencion_inicio_2='00:00', horario_de_atencion_fin_3='00:00',
+                             horario_de_atencion_inicio_3='00:00', latitud=0.00, longitud=0.00, publicado=False)
+        ctx = {
+            'nombre': nombre,
+            'servicio': servicio,
+            'telefono': telefono,
+            'email': email,
+        }
+        html_part = render_to_string('email/email.html', ctx)
+        send_mail(subject='INGRESO LOCAL: ' +nombre ,message='', from_email='contacto@infotiendaecuador.com',
+                  recipient_list= [email,'anymaz@gmail.com'], fail_silently=False,
+                  html_message=html_part)
 
         # ctx = {
         #     'nombres': estudiante.usuario.get_full_name(),
