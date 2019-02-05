@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'a&mj5e=80*1p4j9n9d7qo=nzxu@@@13^ppq6tqx!e_t9kk8d8_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+
 
 
 # Application definition
@@ -87,19 +87,7 @@ WSGI_APPLICATION = 'infotiendaecuador.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'infotiendaecuador',
-            'USER': 'davidpulloquinga',
-            'PASSWORD': 'D@vidpull0',
-            'HOST': 'localhost',
-            'PORT': '5432',
-        }
-    }
-#
-# if DEBUG:
-#     DATABASES = {
+# DATABASES = {
 #         'default': {
 #             'ENGINE': 'django.db.backends.postgresql',
 #             'NAME': 'infotiendaecuador',
@@ -109,17 +97,31 @@ DATABASES = {
 #             'PORT': '5555',
 #         }
 #     }
-# else:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.postgresql',
-#             'NAME': 'infotiendaecuador',
-#             'USER': 'davidpulloquinga',
-#             'PASSWORD': 'D@vidpull0',
-#             'HOST': 'localhost',
-#             'PORT': '5432',
-#         }
-#     }
+#
+if DEBUG:
+    DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.postgresql',
+                'NAME': 'infotiendaecuador',
+                'USER': 'davidpulloquinga',
+                'PASSWORD': '',
+                'HOST': 'localhost',
+                'PORT': '5555',
+            }
+        }
+    ALLOWED_HOSTS = ['*']
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'infotienda',
+            'USER': 'davidpulloquinga',
+            'PASSWORD': 'D@vidpull0',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
+    ALLOWED_HOSTS = ['infotiendaecuador.com','www.infotiendaecuador.com']
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
