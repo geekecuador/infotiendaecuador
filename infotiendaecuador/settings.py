@@ -121,7 +121,7 @@ else:
             'PORT': '5432',
         }
     }
-    ALLOWED_HOSTS = ['infotiendaecuador.com','www.infotiendaecuador.com']
+    ALLOWED_HOSTS = ['*']
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
