@@ -28,7 +28,6 @@ class ConfiguracioSitio(SingletonModel):
         return self.nombre_sitio
 
 
-
 class Provincia(models.Model):
     nombre = models.CharField(max_length=200)
 

@@ -90,11 +90,11 @@ class busqueda(View):
         query = SearchQuery(valor,config=language)
         locales= Local.objects.annotate(
             rank=SearchRank(vector, query)
-        ).filter(rank__gte=0.3).filter(canton=ciudad).filter(publicado=True).order_by('prioridad').query
+        ).filter(rank__gte=0.1).filter(canton=ciudad).filter(publicado=True).order_by('prioridad').query
         print(locales)
         locales = Local.objects.annotate(
             rank=SearchRank(vector, query)
-        ).filter(rank__gte=0.3).filter(canton=ciudad).filter(publicado=True).order_by('prioridad')
+        ).filter(rank__gte=0.1).filter(canton=ciudad).filter(publicado=True).order_by('prioridad')
         ciudad = Canton.objects.get(id=ciudad)
         constants = constant()
         return render(request, 'listing/listing.html',
