@@ -137,7 +137,7 @@ def ingresarlocal(request):
         }
         html_part = render_to_string('email/email.html', ctx)
         send_mail(subject='INGRESO LOCAL: ' +nombre ,message='', from_email='contacto@infotiendaecuador.com',
-                  recipient_list= [email,'anymaz@gmail.com'], fail_silently=False,
+                  recipient_list= [email,'infotiendaecuador@gmail.com'], fail_silently=False,
                   html_message=html_part)
 
         # ctx = {
