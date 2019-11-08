@@ -81,61 +81,76 @@ WSGI_APPLICATION = 'infotiendaecuador.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
+#
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-
+#
 # DATABASES = {
 #         'default': {
 #             'ENGINE': 'django.db.backends.postgresql',
-#             'NAME': 'infotiendaecuador',
-#             'USER': 'davidpulloquinga',
-#             'PASSWORD': '',
+#             'NAME': 'infotienda',
+#             'USER': 'davidandrespulloquinga',
+#             'PASSWORD': 'D@vidpull0',
 #             'HOST': 'localhost',
-#             'PORT': '5555',
+#             'PORT': '5431',
+#         }
+#     }
+
+
+
+
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'infotienda',
+            'USER': 'davidpulloquinga',
+            'PASSWORD': 'D@vidpull0',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
+
+
+# if DEBUG:
+#     # DATABASES = {
+#     #         'default': {
+#     #             'ENGINE': 'django.db.backends.postgresql',
+#     #             'NAME': 'infotiendaecuador',
+#     #             'USER': 'davidpulloquinga',
+#     #             'PASSWORD': '',
+#     #             'HOST': 'localhost',
+#     #             'PORT': '5555',
+#     #         }
+#     #     }
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql',
+#             'NAME': 'infotienda',
+#             'USER': 'davidpulloquinga',
+#             'PASSWORD': 'D@vidpull0',
+#             'HOST': 'localhost',
+#             'PORT': '5432',
 #         }
 #     }
 #
-if DEBUG:
-    # DATABASES = {
-    #         'default': {
-    #             'ENGINE': 'django.db.backends.postgresql',
-    #             'NAME': 'infotiendaecuador',
-    #             'USER': 'davidpulloquinga',
-    #             'PASSWORD': '',
-    #             'HOST': 'localhost',
-    #             'PORT': '5555',
-    #         }
-    #     }
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'infotienda',
-            'USER': 'davidpulloquinga',
-            'PASSWORD': 'D@vidpull0',
-            'HOST': 'localhost',
-            'PORT': '5432',
-        }
-    }
-
-
-    ALLOWED_HOSTS = ['*']
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'infotienda',
-            'USER': 'davidpulloquinga',
-            'PASSWORD': 'D@vidpull0',
-            'HOST': 'localhost',
-            'PORT': '5432',
-        }
-    }
-    ALLOWED_HOSTS = ['*']
+#
+#     ALLOWED_HOSTS = ['*']
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql',
+#             'NAME': 'infotienda',
+#             'USER': 'davidpulloquinga',
+#             'PASSWORD': 'D@vidpull0',
+#             'HOST': 'localhost',
+#             'PORT': '5432',
+#         }
+#     }
+#     ALLOWED_HOSTS = ['*']
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
@@ -182,16 +197,16 @@ MEDIA_URL = '/media/'
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 MAILCHIMP_API_KEY = "c57b42bedee9a88f9501f2162a361813-us19"
-STATIC_ROOT = '/home/davidpulloquinga/static/'
+STATIC_ROOT = '/home/urban/static/'
 # if not DEBUG:
 #     STATIC_ROOT = '/home/urban/static/'
 
 # EMAIL_USE_SSL = True
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = False
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'email-smtp.us-east-1.amazonaws.com'
-EMAIL_HOST_USER = 'AKIAIMZ4VHJU2JJMKZ3A'
-EMAIL_HOST_PASSWORD = 'Aj0LkieiM+sCqXINEgOYElIZrkjz4WcL3x0FBEIHDQXb'
-EMAIL_PORT = 587
+EMAIL_HOST = 'mail.infotiendaecuador.com'
+EMAIL_HOST_USER = 'locales@infotiendaecuador.com'
+EMAIL_HOST_PASSWORD = 'infotienda@'
+EMAIL_PORT = 26
 # DEFAULT_FROM_EMAIL = 'MasterKey English <sistema@masterkey.com.ec>'
 # EMAIL_HOST_USER = 'sistema@masterkey.com.ec'

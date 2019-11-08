@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.views import View
 from django.views.generic import DetailView
-
+from .forms import LocalForm
 from infotienda.models import Canton, Categorias, Subcategorias, Local, ConfiguracioSitio, Provincia, Subscribe
 
 
@@ -70,8 +70,31 @@ def privacidad(request):
 
 
 def agregar(request):
+
     constants = constant()
     return render(request, 'listing/agregar.html', {'constants': constants})
+
+
+def agregarnew(request):
+    if request.method == 'POST':
+        form = LocalForm(request.POST)
+        if form.is_valid():
+            local_item = form.save(commit=False)
+            local_item.save()
+
+            html_part = render_to_string('email/email.html')
+            send_mail(subject='INGRESO LOCAL: ' + local_item.nombre , message='', from_email='locales@infotiendaecuador.com',
+                      recipient_list=[local_item.email, 'infotiendaecuador@gmail.com'], fail_silently=False,
+                      html_message=html_part)
+            guardado = True
+            form = LocalForm()
+            constants = constant()
+            return render(request, 'listing/agregar-new.html', {'constants': constants, 'form': form,'guardado':guardado})
+    else:
+        form = LocalForm()
+        constants = constant()
+        guardado = False
+        return render(request, 'listing/agregar-new.html', {'constants': constants, 'form': form, 'guardado': guardado})
 
 
 class busqueda(View):

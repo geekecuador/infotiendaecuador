@@ -1,0 +1,83 @@
+{% extends 'listing/template.html' %}
+{% load static from staticfiles %}
+{% block titulo %}
+    <title>Ingreso de local| Infotienda Ecuador</title>
+    <meta property="og:title" content="{{ object.nombre }}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="{{ request.build_absolute_uri }}"/>
+    <meta property="og:image"
+          content="{{ request.scheme }}://{{ request.get_host }}{{ MEDIA_URL }}{{ object.imagen.url }}"/>
+    <meta property="og:description" content="{{ object.servicio }}"/>
+{% endblock %}
+
+{% block contenido %}
+
+    <!-- Page title -->
+    <div class="page-title parallax parallax1">
+        <div class="section-overlay" style="background-image: url('{% static 'images/fondo6.jpeg' %}')">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-title-heading">
+                        <h1 class="title text-center">Ingresar un nuevo local</h1>
+                    </div><!-- /.page-title-captions -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </div><!-- /.page-title -->
+
+    <!-- Blog posts -->
+    <section class="main-content page-listing">
+        <div class="container">
+            <div class="row text-left">
+                <div class="col-lg-12">
+                    <div class="listing-wrap">
+
+                        <div class="row">
+                            <div class="offset-3 center-block col-md-6 ">
+                                <div>
+                                    <style>
+                                        #my_form p label,
+#my_form p input{
+    float: left;
+    clear: left;
+}
+                                        </style>
+                                    <div class="text"  id="my_form">
+
+
+                                        {% if guardado%}
+                                            <strong>
+                                                                                        <p>Muchas gracias, en unos instantes un agente se contactará con usted. </p>
+
+                                            </strong>
+                                        {% endif %}
+
+                                        <form id="formulario" class="form-login form-listing" method="post">
+                                            {% csrf_token %}
+                                            {{ form.as_p}}
+                                            <input type="submit" value="Enviar">
+                                        </form>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </div><!-- /.listing-wrap -->
+                </div><!-- /.col-lg-9 -->
+
+
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
+    <script src="{% static 'javascript/jquery.min.js' %} "></script>
+
+
+{% endblock %}

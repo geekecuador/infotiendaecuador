@@ -19,7 +19,9 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
 
-from infotienda.views import index, busqueda, single, Locales, subscribe,privacidad,agregar,ingresarlocal
+from infotienda.views import index, busqueda, single
+from infotienda.views import Locales, subscribe,privacidad,agregar,ingresarlocal
+from infotienda.views import agregarnew
 from infotiendaecuador import settings
 
 urlpatterns = [
@@ -31,6 +33,7 @@ urlpatterns = [
     path('local/', single),
     path('privacidad/', privacidad),
     path('agregar/', agregar),
+    path('agregarnew/', agregarnew),
     path('locales/<slug:slug>/', Locales.as_view(), name='locales'),
     path('subscribe/', subscribe, name="subscribe"),
     path('ingresarlocal/',ingresarlocal,name="ingresarlocal")
