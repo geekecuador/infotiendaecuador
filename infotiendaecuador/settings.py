@@ -26,7 +26,7 @@ SECRET_KEY = 'a&mj5e=80*1p4j9n9d7qo=nzxu@@@13^ppq6tqx!e_t9kk8d8_'
 DEBUG = True
 
 
-
+ALLOWED_HOSTS = ['*']
 
 
 
